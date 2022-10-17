@@ -1,5 +1,6 @@
 package com.example.project2;
 
+import DAO.JDBC;
 import Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,11 +15,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
+
+import static DAO.JDBC.connection;
 
 public class AddAppointmentPageController implements Initializable {
 
@@ -230,11 +233,11 @@ public class AddAppointmentPageController implements Initializable {
         }
 
     }
-
-
     public Boolean validateCustomerOverlap(Integer inputCustomerID, LocalDateTime startDateTime,
                                            LocalDateTime endDateTime, LocalDate apptDate) throws SQLException {
-
+        ZoneId newyork = ZoneId.of("America/New_York");
+        ZonedDateTime startZonedDateTime = ZonedDateTime.of(startDateTime, LogIn.getUserTimeZone());
+        ZonedDateTime endZonedDateTime = ZonedDateTime.of(endDateTime, LogIn.getUserTimeZone());
         // Get list of appointments that might have conflicts
         ObservableList<Appointment> possibleConflicts = AppointmentDB.getCustomerFilteredAppointments(apptDate,
                 inputCustomerID);
@@ -248,25 +251,26 @@ public class AddAppointmentPageController implements Initializable {
         else {
             for (Appointment conflictAppt : possibleConflicts) {
 
-                LocalDateTime conflictStart = conflictAppt.getStartDateTime().toLocalDateTime();
-                LocalDateTime conflictEnd = conflictAppt.getEndDateTime().toLocalDateTime();
+                ZonedDateTime conflictStart = conflictAppt.getStartDateTime().toLocalDateTime().atZone(ZoneId.of("America/New_York"));
+                ZonedDateTime conflictEnd = conflictAppt.getEndDateTime().toLocalDateTime().atZone(ZoneId.of("America/New_York"));
+
 
                 // Conflict starts before and Conflict ends any time after new appt ends - overlap
-                if( conflictStart.isBefore(startDateTime) & conflictEnd.isAfter(endDateTime)) {
+                if( conflictStart.isBefore(startDateTime.atZone(ZoneId.of("America/New_York"))) & conflictEnd.isAfter(endDateTime.atZone(ZoneId.of("America/New_York")))) {
                     return false;
                 }
                 // ConflictAppt start time falls anywhere in the new appt
-                if (conflictStart.isBefore(endDateTime) & conflictStart.isAfter(startDateTime)) {
+                if (conflictStart.isBefore(endDateTime.atZone(ZoneId.of("America/New_York"))) & conflictStart.isAfter(startDateTime.atZone(ZoneId.of("America/New_York")))) {
                     return false;
                 }
                 // ConflictAppt end time falls anywhere in the new appt
-                if (conflictEnd.isBefore(endDateTime) & conflictEnd.isAfter(startDateTime)) {
+                if (conflictEnd.isBefore(endDateTime.atZone(ZoneId.of("America/New_York"))) & conflictEnd.isAfter(startDateTime.atZone(ZoneId.of("America/New_York")))) {
                     return false;
                 }
-                if(conflictStart.isEqual(startDateTime) & conflictEnd.isEqual(endDateTime)){
+                if(conflictStart.isEqual(startDateTime.atZone(ZoneId.of("America/New_York"))) & conflictEnd.isEqual(endDateTime.atZone(ZoneId.of("America/New_York")))){
                     return false;
                 }
-                if(conflictStart.isEqual(startDateTime) & conflictEnd.isAfter(endDateTime)){
+                if(conflictStart.isEqual(startDateTime.atZone(ZoneId.of("America/New_York"))) & conflictEnd.isAfter(endDateTime.atZone(ZoneId.of("America/New_York")))){
                     return false;
                 }
                 else {
