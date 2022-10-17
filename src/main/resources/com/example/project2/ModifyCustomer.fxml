@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="722.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.ModifyCustomerController">
+   <children>
+      <Label layoutX="92.0" layoutY="95.0" text="Customer Name" />
+      <Label layoutX="91.0" layoutY="177.0" text="Address" />
+      <Label layoutX="93.0" layoutY="252.0" text="Postal Code" />
+      <Label layoutX="96.0" layoutY="333.0" text="Phone" />
+      <Label layoutX="166.0" layoutY="39.0" text="Modify Customer Form">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextBox" layoutX="249.0" layoutY="91.0" promptText="String" />
+      <TextField fx:id="addressTextBox" layoutX="249.0" layoutY="173.0" promptText="String" />
+      <TextField fx:id="postalCodeTextBox" layoutX="249.0" layoutY="248.0" promptText="String" />
+      <TextField fx:id="phoneTextBox" layoutX="249.0" layoutY="329.0" promptText="String" />
+      <Button fx:id="saveButton" layoutX="86.0" layoutY="560.0" mnemonicParsing="false" onAction="#onSaveButtonPress" prefHeight="46.0" prefWidth="80.0" text="Save" />
+      <Button fx:id="closeButton" layoutX="412.0" layoutY="560.0" mnemonicParsing="false" onAction="#onCloseButtonPress" prefHeight="46.0" prefWidth="80.0" text="Close" />
+      <Button fx:id="clearButton" layoutX="261.0" layoutY="560.0" mnemonicParsing="false" onAction="#onClearButtonPress" prefHeight="46.0" prefWidth="80.0" text="Clear" />
+      <ComboBox fx:id="countryComboBox" layoutX="249.0" layoutY="496.0" prefHeight="25.0" prefWidth="161.0" />
+      <Label layoutX="82.0" layoutY="500.0" text="Country ComboBox" />
+      <Label layoutX="90.0" layoutY="412.0" text="Division " />
+      <ComboBox fx:id="divisionComboBox" layoutX="249.0" layoutY="408.0" prefHeight="25.0" prefWidth="161.0" />
+      <TextField fx:id="customerIDTextBox" disable="true" layoutX="249.0" layoutY="131.0" opacity="0.19" />
+      <Label layoutX="90.0" layoutY="135.0" text="Customer ID" />
+   </children>
+</AnchorPane>

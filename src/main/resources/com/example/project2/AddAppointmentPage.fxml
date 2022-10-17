@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.AddAppointmentPageController">
+   <children>
+      <Label layoutX="203.0" layoutY="62.0" text="Add Appointments">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="127.0" text="User ID" />
+      <Label layoutX="68.0" layoutY="170.0" text="Title" />
+      <Label layoutX="69.0" layoutY="216.0" text="Description" />
+      <Label layoutX="70.0" layoutY="260.0" text="Location" />
+      <Label layoutX="72.0" layoutY="302.0" text="Contact" />
+      <Label layoutX="75.0" layoutY="392.0" prefHeight="17.0" prefWidth="54.0" text="Type" />
+      <Label layoutX="74.0" layoutY="434.0" text="Date" />
+      <Label layoutX="74.0" layoutY="475.0" text="Start Time" />
+      <Label layoutX="74.0" layoutY="522.0" text="End Time" />
+      <Button fx:id="saveButton" layoutX="86.0" layoutY="560.0" mnemonicParsing="false" onAction="#onSaveButtonPress" prefHeight="46.0" prefWidth="80.0" text="Save" />
+      <Button fx:id="closeButton" layoutX="412.0" layoutY="560.0" mnemonicParsing="false" onAction="#onCloseButtonPress" prefHeight="46.0" prefWidth="80.0" text="Close" />
+      <ComboBox fx:id="userComboBox" layoutX="251.0" layoutY="123.0" prefHeight="25.0" prefWidth="188.0" />
+      <TextField fx:id="titleTextBox" layoutX="252.0" layoutY="166.0" prefHeight="25.0" prefWidth="188.0" promptText="String" />
+      <TextField fx:id="descriptionTextBox" layoutX="252.0" layoutY="212.0" prefHeight="25.0" prefWidth="188.0" promptText="String" />
+      <TextField fx:id="locationTextBox" layoutX="252.0" layoutY="256.0" prefHeight="25.0" prefWidth="188.0" promptText="String" />
+      <TextField fx:id="typeTextField" layoutX="252.0" layoutY="388.0" prefHeight="25.0" prefWidth="188.0"  promptText="String" />
+      <Label fx:id="timeZoneLabel" layoutX="125.0" layoutY="645.0" prefHeight="33.0" prefWidth="339.0" text="Communication  Appears Here">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="clearButton" layoutX="261.0" layoutY="560.0" mnemonicParsing="false" onAction="#onClearButtonPress" prefHeight="46.0" prefWidth="80.0" text="Clear" />
+      <DatePicker fx:id="apptDatePicker" layoutX="252.0" layoutY="430.0" />
+      <TextField fx:id="startTimeTextBox" layoutX="251.0" layoutY="471.0" prefHeight="25.0" prefWidth="188.0" promptText="HH:MM" />
+      <TextField fx:id="endTimeTextBox" layoutX="251.0" layoutY="518.0" prefHeight="25.0" prefWidth="188.0" promptText="HH:MM" />
+      <ComboBox fx:id="contactComboBox" layoutX="252.0" layoutY="298.0" prefHeight="25.0" prefWidth="188.0" />
+      <ComboBox fx:id="customerComboBox" layoutX="252.0" layoutY="343.0" prefHeight="25.0" prefWidth="188.0" />
+      <Label  layoutX="72.0" layoutY="347.0" text="Customer" />
+
+   </children>
+</AnchorPane>

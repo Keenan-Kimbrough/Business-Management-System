@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.LoginPageController">
+   <TextField fx:id="userNameTextField" layoutX="271.0" layoutY="169.0" promptText="User Name" />
+   <Label fx:id="userNameLabel" layoutX="60.0" layoutY="167.0" text="User Name">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label fx:id="passwordLabel" layoutX="60.0" layoutY="252.0" prefHeight="31.0" prefWidth="99.0" text="Password">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label fx:id="titleLabel" layoutX="133.0" layoutY="31.0" text="Scheduling Application">
+      <font>
+         <Font size="34.0" />
+      </font>
+   </Label>
+   <PasswordField fx:id="passwordTextField" layoutX="271.0" layoutY="255.0" promptText="Password" />
+   <Button fx:id="logInButton" layoutX="132.0" layoutY="328.0" mnemonicParsing="false" onAction="#onLogInButtonPress" text="Log In" />
+   <Button fx:id="clearButton" layoutX="297.0" layoutY="328.0" mnemonicParsing="false" onAction="#onClearButtonPress" text="Clear" />
+   <Button fx:id="exitButton" layoutX="450.0" layoutY="328.0" mnemonicParsing="false" onAction="#onExitButtonPress" text="Exit" />
+   <Label fx:id="zoneLabel" layoutX="267.0" layoutY="99.0" text="ZoneLabel" />
+</AnchorPane>
